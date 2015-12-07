@@ -1,0 +1,28 @@
+{
+  "name": "simple-file-server",
+  "version": "0.0.1",
+  "description": "A simple file server using Express.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nunnery/simple-file-server.git"
+  },
+  "keywords": [
+    "simple",
+    "file",
+    "server"
+  ],
+  "author": "Richard Harrah <topplethenun@tealcubegames.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nunnery/simple-file-server/issues"
+  },
+  "homepage": "https://github.com/Nunnery/simple-file-server#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "serve-index": "^1.7.2"
+  }
+}
