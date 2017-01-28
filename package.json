@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/Nunnery/simple-file-server#readme",
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "^4.14.1",
     "serve-index": "^1.7.2"
   }
 }
