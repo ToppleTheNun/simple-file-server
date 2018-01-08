@@ -13,24 +13,12 @@ app.set('port', (process.env.PORT || 5000));
 app.use(serveIndex('public', { icons: true, view: 'details' }));
 app.use(express.static(__dirname + '/public', { maxAge: oneDay }));
 
-
-// Enable reverse proxy support in Express. This causes the
-// the "X-Forwarded-Proto" header field to be trusted so its
-// value can be used to determine the protocol. See 
-// http://expressjs.com/api#app-settings for more details.
-app.enable('trust proxy');
-
-// Add a handler to inspect the req.secure flag (see 
-// http://expressjs.com/api#req.secure). This allows us 
-// to know whether the request was via http or https.
-app.use (function (req, res, next) {
-        if (req.secure) {
-                // request was via https, so do no special handling
-                next();
-        } else {
-                // request was via http, so redirect to https
-                res.redirect('https://' + req.headers.host + req.url);
-        }
+app.use(function(req, res, next) {
+    if(req.protocol !== 'https') {
+        return res.status(403).send({message: 'SSL required'});
+    }
+    // allow the request to continue
+    next();
 });
 
 var httpsOptions = {
